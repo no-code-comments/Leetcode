@@ -54,11 +54,11 @@ Iterate the number from beginning to end, and find its complement `target - num`
 
 We need to be careful when the hash table inserts identical elements with different index, since the former item will be overwritten after inserting an item with the same key. However, in this problem, we don’t need to take it into consideration, because we only need two numbers with only 1 exact solution.
 
-If the for loop ends without finding a pair, meaning that we don’t find a any pair having a sum of the target value. The constraints ensure that this case will not happen.
+If the for loop ends without finding a pair, meaning that we don’t find any pair having a sum of the target value. The constraints ensure that this case will not happen.
 
 ## Solution
 
-```cpp
+```c++
 #include <vector>
 #include <unordered_map>
 using namespace std;
