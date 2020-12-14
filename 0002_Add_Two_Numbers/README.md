@@ -58,7 +58,7 @@ Since the sum digit will be calculated in the loop, so we don’t know the first
 
 ## Solution
 
-```cpp
+```c++
 #include <vector>
 #include <unordered_map>
 using namespace std;
