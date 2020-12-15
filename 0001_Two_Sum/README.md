@@ -34,10 +34,10 @@ Output: [0,1]
 
 ### Constraints
 
-- 2 <= `nums.length` <= 103
-- -109 <= `nums[i]` <= 109
-- -109 <= `target` <= 109
-- Only one valid answer exists.
+- `2 <= nums.length <= 103`
+- `-109 <= nums[i] <= 109`
+- `-109 <= target <= 109`
+- **Only one valid answer exists.**
 
 ## Procedure
 
