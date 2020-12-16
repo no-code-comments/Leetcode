@@ -64,7 +64,7 @@ $M = \left\{ \begin{array}{ll} a_{i - 1} & k = 2t - 1, t \in \mathbb{N^*} \\ \\ 
 
 Since we cannot directly use the index in this problem when considering two arrays, so we back to the definition of separation. We make two separation line for two arrays $X, Y$ with $m$ elements and $n$ elements respectively. ($m, n \in \mathbb{N}$)
 
-$\left. \begin{array}{l} x_0, x_1, \cdots, x_{i-1} \\ y_0, y_1, \cdots, y_{j-1} \end{array} \quad \right \vert \quad \left. \begin{array}{l} x_{i}, x_{i+1}, \cdots, x_{m-1} \\ y_{j}, y_{j+1}, \cdots, y_{n-1} \end{array} \quad \right.$
+$$\left. \begin{array}{l} x_0, x_1, \cdots, x_{i-1} \\ y_0, y_1, \cdots, y_{j-1} \end{array} \quad \right \vert \quad \left. \begin{array}{l} x_{i}, x_{i+1}, \cdots, x_{m-1} \\ y_{j}, y_{j+1}, \cdots, y_{n-1} \end{array} \quad \right.$$
 
 We make sure that the left side has $\left\lfloor \dfrac{m + n + 1}{2} \right\rfloor$ elements, meaning that $i + j = \left\lfloor \dfrac{m + n + 1}{2} \right\rfloor$. 
 
@@ -76,7 +76,7 @@ If we can prove that all elements in the left side is lower than the elements in
 
 In the third case, the separation can be compressed as
 
-$\cdots, \min(x_{i-1}, y_{j-1}), \max(x_{i-1}, y_{j-1}) \quad | \quad \min(x_{i}, y_{j}), \max(x_{i}, y_{j}) \cdots$
+$$\cdots, \min(x_{i-1}, y_{j-1}), \max(x_{i-1}, y_{j-1}) \quad | \quad \min(x_{i}, y_{j}), \max(x_{i}, y_{j}) \cdots$$
 
 Then the median can be given as
 
