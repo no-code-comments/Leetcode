@@ -1,8 +1,6 @@
 # Two Sum
 
-[Easy]
-
-Link — https://leetcode.com/problems/two-sum/
+[Easy] — https://leetcode.com/problems/two-sum/
 
 ## Problem
 

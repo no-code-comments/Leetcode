@@ -1,8 +1,6 @@
 # Add Two Numbers
 
-[Medium]
-
-Link — https://leetcode.com/problems/add-two-numbers/
+[Medium] — https://leetcode.com/problems/add-two-numbers/
 
 ## Problem
 
