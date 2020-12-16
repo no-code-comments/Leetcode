@@ -60,7 +60,7 @@ We define that this separation follows the property: the left side has at most o
 
 If $k$ is odd, the median is $a_{i-1}$; if $k$ is even, the median is $\dfrac{a_i + a_{i-1}}{2}$. Based on mathematics, we know that the left size has $ \left\lfloor \dfrac{k + 1}{2} \right\rfloor $ elements, and $i = \left\lfloor \dfrac{k + 1}{2} \right\rfloor $. Furthermore, the formula for the median is derived as
 
-$M = \left\{ \begin{array}{ll} a_{i - 1} & k = 2t - 1, t \in \mathbb{N^*} \\ \\ \dfrac{a_i + a_{i-1}}{2} & k = 2t, t \in \mathbb{N^*} \end{array} \right. \quad i = \left\lfloor \dfrac{k + 1}{2} \right\rfloor$
+$$M = \left\{ \begin{array}{ll} a_{i - 1} & k = 2t - 1, t \in \mathbb{N^*} \\ \\ \dfrac{a_i + a_{i-1}}{2} & k = 2t, t \in \mathbb{N^*} \end{array} \right. \quad i = \left\lfloor \dfrac{k + 1}{2} \right\rfloor$$
 
 Since we cannot directly use the index in this problem when considering two arrays, so we back to the definition of separation. We make two separation line for two arrays $X, Y$ with $m$ elements and $n$ elements respectively. ($m, n \in \mathbb{N}$)
 
