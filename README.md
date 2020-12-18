@@ -9,7 +9,7 @@ All solutions in **Solution** part is written by myself.
 
 ## Preface
 
-Algorithm is a hard topic, not only coming up with an efficient idea, but also implementing the idea with code. Leetcode is a platform for people to practice there algorithm techniques and coding skills.
+Algorithm is a hard topic, not only coming up with an efficient idea, but also implementing the idea with code.
 
 To solve a problem, there exists three major steps.
 
