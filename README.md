@@ -1,4 +1,5 @@
 # LEETCODE COLLECTIONS
+
 ## Declaration
 
 All problems are cited from [Leetcode](https://leetcode.com/problems/).
