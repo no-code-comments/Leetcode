@@ -1,4 +1,4 @@
-# Median of Two Sorted Arrays
+Median of Two Sorted Arrays
 
 [Hard] — https://leetcode.com/problems/longest-substring-without-repeating-characters/
 
@@ -54,17 +54,17 @@ Output: 2.00000
 
 At first, we discuss median itself, instead of the problem. For a given sorted array $A$ containing $k$ elements $a_0, a_1, \cdots , a_{k-1}$, we can make a separation as follows
 
-$$a_0, a_1, \cdots , a_{i - 1}\quad  | \quad a_i, a_{i+1}, \cdots, a_{k - 1}$$
+![](http://latex.codecogs.com/gif.latex? a_0, a_1, \cdots , a_{i - 1}\quad  | \quad a_i, a_{i+1}, \cdots, a_{k - 1})
 
 We define that this separation follows the property: the left side has at most one more element than the right side. 
 
 If $k$ is odd, the median is $a_{i-1}$; if $k$ is even, the median is $\dfrac{a_i + a_{i-1}}{2}$. Based on mathematics, we know that the left size has $ \left\lfloor \dfrac{k + 1}{2} \right\rfloor $ elements, and $i = \left\lfloor \dfrac{k + 1}{2} \right\rfloor $. Furthermore, the formula for the median is derived as
 
-$$M = \left\{ \begin{array}{ll} a_{i - 1} & k = 2t - 1, t \in \mathbb{N^*} \\ \\ \dfrac{a_i + a_{i-1}}{2} & k = 2t, t \in \mathbb{N^*} \end{array} \right. \quad i = \left\lfloor \dfrac{k + 1}{2} \right\rfloor$$
+![](http://latex.codecogs.com/gif.latex? M = \left\{ \begin{array}{ll} a_{i - 1} & k = 2t - 1, t \in \mathbb{N^*} \\ \\ \dfrac{a_i + a_{i-1}}{2} & k = 2t, t \in \mathbb{N^*} \end{array} \right. \quad i = \left\lfloor \dfrac{k + 1}{2} \right\rfloor)
 
 Since we cannot directly use the index in this problem when considering two arrays, so we back to the definition of separation. We make two separation line for two arrays $X, Y$ with $m$ elements and $n$ elements respectively. ($m, n \in \mathbb{N}$)
 
-$$\left. \begin{array}{l} x_0, x_1, \cdots, x_{i-1} \\ y_0, y_1, \cdots, y_{j-1} \end{array} \quad \right \vert \quad \left. \begin{array}{l} x_{i}, x_{i+1}, \cdots, x_{m-1} \\ y_{j}, y_{j+1}, \cdots, y_{n-1} \end{array} \quad \right.$$
+![](http://latex.codecogs.com/gif.latex? \left. \begin{array}{l} x_0, x_1, \cdots, x_{i-1} \\ y_0, y_1, \cdots, y_{j-1} \end{array} \quad \right \vert \quad \left. \begin{array}{l} x_{i}, x_{i+1}, \cdots, x_{m-1} \\ y_{j}, y_{j+1}, \cdots, y_{n-1} \end{array} \quad \right.)
 
 We make sure that the left side has $\left\lfloor \dfrac{m + n + 1}{2} \right\rfloor$ elements, meaning that $i + j = \left\lfloor \dfrac{m + n + 1}{2} \right\rfloor$. 
 
@@ -76,11 +76,11 @@ If we can prove that all elements in the left side is lower than the elements in
 
 In the third case, the separation can be compressed as
 
-$$\cdots, \min(x_{i-1}, y_{j-1}), \max(x_{i-1}, y_{j-1}) \quad | \quad \min(x_{i}, y_{j}), \max(x_{i}, y_{j}) \cdots$$
+![](http://latex.codecogs.com/gif.latex? \cdots, \min(x_{i-1}, y_{j-1}), \max(x_{i-1}, y_{j-1}) \quad | \quad \min(x_{i}, y_{j}), \max(x_{i}, y_{j}) \cdots)
 
 Then the median can be given as
 
-$$M = \left\{ \begin{array}{ll} \max(x_{i-1}, y_{j-1}) & m + n = 2t - 1, t \in \mathbb{N^*} \\ \\ \dfrac{\min(x_{i}, y_{j}) + \max(x_{i-1}, y_{j-1})}{2} & k = 2t, t \in \mathbb{N^*} \end{array} \right. $$
+![](http://latex.codecogs.com/gif.latex? M = \left\{ \begin{array}{ll} \max(x_{i-1}, y_{j-1}) & m + n = 2t - 1, t \in \mathbb{N^*} \\ \\ \dfrac{\min(x_{i}, y_{j}) + \max(x_{i-1}, y_{j-1})}{2} & k = 2t, t \in \mathbb{N^*} \end{array} \right.)
 
 In order to find the correct separation, that is, the correct value of $i, j$, in $O(\log (m + n))$ time complexity, we use binary search algorithm.
 
