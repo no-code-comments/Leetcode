@@ -38,7 +38,7 @@ Output: "a"
 
 ## Procedure
 
-### Basic algorithm
+### General idea
 
 There exists an generally acknowledged optimal algorithm for find a longest palindromic substring, called **Manacher’s Algorithm**. It has only $O(n)$ time complexity, better than all normal solutions.
 
@@ -83,7 +83,9 @@ Then we need to clarify the initial state. It’s obvious that for any arbitrary
 
 Applying the dynamic programming stated above, we can calculate all values in $dp$ in $O(n)$ time, so we are able to find the longest palindromic sub-string in linear time.
 
-Then we can start writing the algorithm. Assume the length of the input string `s` is `n`.
+### Basic Algorithm
+
+Assume the length of the input string `s` is `n`.
 
 Firstly add separators to the original string `s` to string `t`.
 

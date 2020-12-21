@@ -41,19 +41,49 @@ Output: 0
 
 ## Procedure
 
-### Basic algorithm
+### General idea
 
-We use two index `i`, `j` to store the range of the unrepeated sub-string of `s`. They are both initialized with `0`. Then the length of the string can be calculated as `j - i + 1`. We iterate the string to the end and then find the maximum length.
+At first, we introduce a method for storing a sub-string, that is, two-pointer (two-index) method. We use $i, j$ two indexes, pointing to the leftmost character and the rightmost character of the sub-string.
+$$
+s_0\ s_1\ \cdots s_{i - 1}\ \underbrace{\ s_i\ s_{i + 1}\ \cdots \ s_{j - 1} \ s_j} _{j - i + 1\ \text{characters}} \ s_{j+1} \ \cdots \ s_{n - 2} \ s_{n-1}
+$$
+Generally, we let $i$ points to the leftmost character, and $j$ points to the rightmost character.
+
+Then we apply the **sliding window** algorithm, an extension of dynamic programming.
+
+Initially we set $i = j = 0$, meaning that our sub-string is only the first character.
+
+Then we start to increment $j$, and check whether the expanded sub-string violate the rule. When we find that the newly inserted character is an repeating characters, we increase $i$ until the reduced sub-string follows the rule again. The following process shows the procedure of $i' \to i, j' \to j$ with the rule is violated during inserting the character.
+$$
+\begin{array}{l}
+	|s_{i'}\ \cdots \ s_{k} \cdots \ s_{j'}| \leftarrow s_{j} \\
+	\qquad \downarrow j = j' + 1 \\
+	|s_{i'}\ \cdots \ s_{k} \cdots \ s_{j'}\ s_{j} | \\
+	\qquad \downarrow s_j = s_k \ \text{violate}\\
+	s_{i'} \ \cdots \ s_{k} | s_{i} \cdots s_{j'} \ s_{j} | \\
+	\qquad \downarrow i = k + 1 \\
+	|s_{i} \cdots s_{j}|
+\end{array}
+$$
+
+
+We proceed this operation until $j$ reaches the end.
+
+We notice that $i, j$ represents the longest sub-string without repeating characters with its end $s[j]$, since we always increment $i$ when the rules are violated. Because we iterate $j$ from beginning to end through the whole process, we have access to a list of $n$ longest sub-strings without repeating characters with different end characters, from $s[0]$ to $s[n-1]$. In that the ultimate longest sub-string must have an end, so it is just the longest one in the list.
+
+### Basic algorithm
 
 Use a hash table to check whether the new character is already in the current string.
 
-Iterate `j` from `0` to `s.size() - 1`
+Assume the string `s` has size `n`
 
-- check whether the new character `s[j]` is in the hash table
-    - Yes — increase the element `i` until the range contains unrepeated character
-    - No — do nothing, the range is automatically enlarged
-- insert the new character and its index into the hash table
-- calculate the maximum length
+Initialize `i = 0`, `len = 0` and a hash table `table`
+
+Iterate `j` from `0` to `n - 1`
+
+- if `s[j]` is in `table`, `i = max(table[s[j]] + 1, i)`
+- insert `{s[j], j}` pair into `table`
+- if `j - i + 1 > len`, then `len = j - i + 1`
 
 After the loop, the maximum length is the length of the longest substring without repeating characters.
 

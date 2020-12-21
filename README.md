@@ -28,6 +28,7 @@ There is a README file in every directory, containing all the information about 
 
 - Problem — The same description copied from Leetcode website.
 - Procedure — The explanation of the problem and the solution.
+    - General idea — The thought process of the problem
     - Basic algorithm — The general algorithm for the problem
     - Extra discussion — Detailed implementation and further extension
 - Solution — The successful submitted code based on the previous algorithm
@@ -36,7 +37,9 @@ There is a README file in every directory, containing all the information about 
 
 Firstly, I recommend you to download the files and read it with your own Markdown editor such as [Typora](https://typora.io/). Some of the parts like complex mathematics expressions may not be rendered correctly in Github. 
 
-For understanding the solution to the problem, directly scanning the **Solution** part is useless. The **Procedure** part explain the algorithm in detail, but I recommend you to read both **Basic algorithm** and **Extra discussion**. The former part contains a basic ideology for the algorithm, and the latter part is about some detailed implementation (in C++) and some discussion over corner cases. They are all significantly pivotal for understanding an algorithm.
+For understanding the solution to the problem, directly scanning the **Solution** part is useless. The **Procedure** part explain the algorithm in detail, but I recommend you to read all sections — **General idea**, **Basic algorithm** and **Extra discussion**. 
+
+**General idea** part gives the starting point and states corresponding principles. **Basic algorithm** part contains a procedure-like algorithm. **Extra discussion** part is about some detailed implementation (in C++) and some discussion over corner cases. They are all significantly pivotal for understanding an algorithm.
 
 ## Acknowledgement
 

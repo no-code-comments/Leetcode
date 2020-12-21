@@ -50,7 +50,7 @@ Output: 2.00000
 
 ## Procedure
 
-### Basic algorithm
+### General idea
 
 At first, we discuss median itself, instead of the problem. For a given sorted array $A$ containing $k$ elements $a_0, a_1, \cdots , a_{k-1}$, we can make a separation as follows
 
@@ -83,6 +83,8 @@ Then the median can be given as
 $$ M = \left\{ \begin{array}{ll} \max(x_{i-1}, y_{j-1}) & m + n = 2t - 1, t \in \mathbb{N^*} \\ \\ \dfrac{\min(x_{i}, y_{j}) + \max(x_{i-1}, y_{j-1})}{2} & k = 2t, t \in \mathbb{N^*} \end{array} \right. $$
 
 In order to find the correct separation, that is, the correct value of $i, j$, in $O(\log (m + n))$ time complexity, we use binary search algorithm.
+
+### Basic Algorithm
 
 Firstly, check the size of the two arrays. Let the shorter vector to be the first array, indexed by `i`, and the longer one to be the second array, indexed by `j`. Let the size of the first array to be `m`, and the size of the second array to be `n`.
 

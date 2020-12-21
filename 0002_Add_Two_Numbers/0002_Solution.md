@@ -36,16 +36,46 @@ Output: [8,9,9,9,0,0,0,1]
 
 ## Procedure
 
-### Basic algorithm
+### General idea
 
 The algorithm is just like using a vertical calculation to calculate the sum digit by digit.
+$$
+\left.
+	\begin{array}{lcccccccccccc}
+		\text{List A:} \quad &  a_1 & & a_2 & & a_3 & & a_n\\
+		& + & & + & & + & & +\\
+		\text{List B:} \quad & b_1 & & b_2 & & b_3 & & b_n \\
+		& + & & + & & + & & +\\
+		\text{Carry: }& 0 & \rightarrow & c_1 & \rightarrow & c_2 & \cdots & c_{n-1} & \rightarrow & c_n \\
+		& \downarrow & & \downarrow && \downarrow & & \downarrow & & \downarrow \\
+		\text{Result: } & s_1 & & s_2 & & s_3 & & s_n & & c_n
+	\end{array}
+\right.
+$$
+For each step, we can derive the mathematical expression
+$$
+\left\{  
+	\begin{array}{l}
+		c_0 = 0 \\
+		(a_k + b_k + c_{k - 1}) \div 10 = c_k \cdots s_k
+	\end{array}
+\right.
+\quad 
+k = 1, 2, \cdots, n
+$$
 
-Iterate the number from beginning to end, read the digits in two list (`0` if `nullptr`)
+### Basic Algorithm
 
-- add digits from two list with the carry digit
-- put the sum into the new list
+Initialize carry digit `c = 0`, an empty list `l`
 
-At the end, we need to check the carry digit again.
+Iterate the number from beginning to end
+
+- read the digits `a`, `b`  in two list (`0` if `nullptr`)
+- `sum = (a + b) mod 10` and `c = floor((a + b) / 10) `
+
+- put `sum` into the list `l`
+
+If `c != 0`, put `c` into the list `l`
 
 ### Extra discussion
 
@@ -53,6 +83,8 @@ Since the sum digit will be calculated in the loop, so we don’t know the first
 
 - Using a `sentinel`, occupying the first item. Then we return the true head `sentinel->next`. In this case, we should not use `new` operation for `sentinel` since we don’t need it out of the function. (Used in our solution)
 - Calculating the sum digit and carry digit first and initialize the `head` of the digits.
+
+When the loop reaches its end, we don’t need to always insert the last carry digit since it may be $0$.
 
 ## Solution
 

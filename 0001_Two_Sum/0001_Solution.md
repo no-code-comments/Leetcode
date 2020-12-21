@@ -8,7 +8,7 @@
 
 Given an array of integers `nums` and an integer `target`, return *indices of the two numbers such that they add up to `target`*.
 
-You may assume that each input would have ***exactly\* one solution**, and you may not use the *same* element twice.
+You may assume that each input would have **exactly one solution**, and you may not use the *same* element twice.
 
 You can return the answer in any order.
 
@@ -39,14 +39,40 @@ Output: [0,1]
 
 ## Procedure
 
-### Basic algorithm
+### General Idea
 
-Using a hash table to store values in `nums` to search an element in $O(1)$ time.
+The problem is about finding specific pair of values, and we can degrade it from finding pair to searching one element based on another element. In this problem, we need to meet the requirement of $a_i + a_j = t$ with number $a$ and $b$, then we transform the question into searching number $a_j = t - a_i$.
 
-Iterate the number from beginning to end, and find its complement `target - num`
+|               | $a_1$          | $a_2$          | $\cdots$ | $a_{n - 2}$    | $a_{n - 1}$    |
+| ------------- | -------------- | -------------- | -------- | -------------- | -------------- |
+| $t - a_1$     | $\circleddash$ |                |          |                |                |
+| $t-a_2$       |                | $\circleddash$ |          |                |                |
+| $\vdots$      |                |                | $\ddots$ |                |                |
+| $t - a_{n-2}$ |                |                |          | $\circleddash$ |                |
+| $t - a_{n-1}$ |                |                |          |                | $\circleddash$ |
 
-- if we can find one element in the previous hash table, then return the pair
-- if we can’t find one, then insert the number and continue
+This table shows the outline of the searching algorithm. We need to fill in all the blanks by searching the elements. The elements cannot be used repeatedly, so those corresponding blocks in the table are labelled as $\circleddash$. After performing one search, we are able to tell the result for each line, whether $t-a_i$ is equal to any element in $a_0, a_1, \cdots, a_{n-1}$. 
+
+Moreover, since the pair relationship (sum in this problem) doesn’t have requirement on order, meaning that the result of $a_j$ when searching $t-a_i$ is the same as that of $a_i$ when search $t -a_{j}$, so we can reduce half of the comparison shown as the following table.
+
+|               | $a_0$          | $a_1$          | $\cdots$ | $a_{n - 2}$    | $a_{n - 1}$    |
+| ------------- | -------------- | -------------- | -------- | -------------- | -------------- |
+| $t - a_0$     | $\circleddash$ | $\circleddash$ | $\cdots$ | $\circleddash$ | $\circleddash$ |
+| $t-a_1$       |                | $\circleddash$ | $\cdots$ | $\circleddash$ | $\circleddash$ |
+| $\vdots$      |                |                | $\ddots$ | $\vdots$       | $\vdots$       |
+| $t - a_{n-2}$ |                |                |          | $\circleddash$ | $\circleddash$ |
+| $t - a_{n-1}$ |                |                |          |                | $\circleddash$ |
+
+According to this table, we observe that when searching $t - a_i$, we only need to perform the search operation in $a_0, a_1, \cdots, a_{i - 1}$, instead of the entire array.
+
+### Basic Algorithm
+
+Using a hash table `table` to store values in `nums` to search an element in $O(1)$ time.
+
+Iterate `i` of `nums` from beginning to end, and find its complement `target - nums[i]`
+
+- if we can find one element in `table`, then return the pair
+- if we can’t find one, then insert `nums[i]` into `table` and continue
 
 ### Extra discussion
 
