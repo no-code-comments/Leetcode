@@ -104,7 +104,7 @@ Return the final result is `res`
 
 ### Extra discussion
 
-About how to detect overflow, we have discussed in [7. Reverse Integer](../0007_Reverse_Integer/0007_Solution). The only difference is that we need to perform the overflow detection whenever we insert one digit for simplicity.
+About how to detect overflow, we have discussed in [7. Reverse Integer](../0007_Reverse_Integer/0007_Solution.md). The only difference is that we need to perform the overflow detection whenever we insert one digit for simplicity.
 
 Since the state machine only has three states, so we use a simpler implementation by flags to replace each state. In the following solution, we use `sign_flag` to control whether the program is in state 1. We use `neg_sign` to control whether the program is in state 2. Then the program will be in state 3 after passing two judgement.
 
