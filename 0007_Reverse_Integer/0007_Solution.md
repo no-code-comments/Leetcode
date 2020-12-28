@@ -93,6 +93,8 @@ We check over at the last step, but we cannot directly calculate the final resul
 ## Solution
 
 ```c++
+#include <climits>
+
 class Solution {
 public:
     int reverse(int x) {
