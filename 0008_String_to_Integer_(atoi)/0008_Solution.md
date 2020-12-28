@@ -1,6 +1,6 @@
 # Reverse Integer
 
-[Easy] — https://leetcode.com/problems/string-to-integer-atoi/
+[Medium] — https://leetcode.com/problems/string-to-integer-atoi/
 
 ## Problem
 
